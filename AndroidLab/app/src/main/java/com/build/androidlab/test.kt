@@ -1,11 +1,20 @@
 package com.build.androidlab
 
+import android.R.attr.name
 
-fun main(args: Array<String>) {
-    var x = 0
-    var sum1 = 0
-    while (x < 10) {
-        sum1 += ++x
+
+class User(name:String) {
+    constructor(name:String, count:Int): this(name) {
+        println("constructor(name: ${name}, count: ${count} call...")
     }
-    println(sum1)
+    constructor(name:String, count:Int, email: String): this(name) {
+        println("constructor(name: ${name}, count: ${count}, email: ${email} call...")
+    }
+}
+
+
+fun main() {
+    val user1 = User("enough1")
+    val user2 = User("enough2", 30)
+    val user3 = User("enough3", 30, "enough@google.com")
 }
