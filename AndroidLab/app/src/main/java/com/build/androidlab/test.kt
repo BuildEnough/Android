@@ -2,19 +2,21 @@ package com.build.androidlab
 
 import android.R.attr.name
 
-
-class User(name:String) {
-    constructor(name:String, count:Int): this(name) {
-        println("constructor(name: ${name}, count: ${count} call...")
-    }
-    constructor(name:String, count:Int, email: String): this(name) {
-        println("constructor(name: ${name}, count: ${count}, email: ${email} call...")
+open class Super() {
+    open var someData = 10
+    fun superFun() {
+        println("I am super class function: $someData")
     }
 }
 
+class Sub: Super() {
+    override var someData = 20
+    fun someFun() {
+        println("I am sub class function: $someData")
+    }
+}
 
 fun main() {
-    val user1 = User("enough1")
-    val user2 = User("enough2", 30)
-    val user3 = User("enough3", 30, "enough@google.com")
+    val obj = Sub()
+    obj.someFun()
 }
